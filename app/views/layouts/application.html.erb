@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="dark">
+  <head>
+    <title>Aw</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= render "layouts/dark_mode_check" %>
+  </head>
+
+  <body class="h-full font-sans antialiased
+  font-normal leading-normal bg-gray-50
+  dark dark:bg-slate-900 dark:text-slate-50
+  1dark:text-slate-500
+  bg-neutral-100 dark:bg-neutral-900">
+    <header class="1bg-white dark:bg-slate-800 dark:text-slate-50
+    text-slate-500 dark:text-slate-400 p-4 flex items-center justify-around">
+      <h1 class="text-slate-900 dark:text-white
+      font-bold text-4xl">Tamni mod</h1>
+
+      <nav class="space-x-1">
+        <a class="1nav-link 1dropdown-toggle active"
+        aria-current="page" href="/public/index">Home</a>
+        <%= link_to 'Posts', posts_path,
+        class: "1nav-link" %>
+        <%= link_to 'Arts', arts_path,
+        class: "1nav-link" %>
+      </nav>
+
+      <div class="flex space-x-1">
+        <div data-controller="dark-mode">
+          <%= image_tag("icons/_VS2.svg",
+          class: 'w-24 h-20 hover:cursor-pointer',
+          data: { action: 'click->dark-mode#toggle'}) %>
+        </div>
+        <div data-controller="dark-mode">
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
+  </body>
+</html>

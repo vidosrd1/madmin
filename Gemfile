@@ -26,5 +26,5 @@ gem "puma"
 
 # Databases to test against
 gem "pg"
-gem "mysql2"
-gem "sqlite3"
+#gem "mysql2"
+#gem "sqlite3"
